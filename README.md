@@ -13,7 +13,7 @@
 ## Requirements
 
 - iOS 13.0+
-- Swift 5.1+
+- Swift 5.0+
 
 
 

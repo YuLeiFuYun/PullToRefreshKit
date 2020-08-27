@@ -1,11 +1,6 @@
-
 <p align="center">
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/logo.png" alt="PullToRefreshKit" title="PullToRefreshKit"/>
-
-</p>
-
- [![Version](https://img.shields.io/cocoapods/v/PullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/PullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+ [![Version](https://img.shields.io/cocoapods/v/PullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/YLRefresh)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
  [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
@@ -14,45 +9,15 @@
 )](http://mit-license.org)
 
 
-**The example project contains some hot App refresh example.**
 
-<table>
-<tr>
-<th>Taobao</th>
-<th>YouKu</th>
-<th>QQ Video</th>
+## Requirements
+
+- iOS 13.0+
+- Swift 5.1+
 
 
-</tr>
-<tr>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/taobao.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/youku.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/qqvideo.gif" width="300"/></td>
 
-</tr>
-<tr>
-<tr>
-<th>Yahoo Weather</th>
-<th>Dian Ping</th>
-<th>QQ</th>
-</tr>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/yahoo.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/dianping.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/qq.gif" width="300"/></td>
-</tr>
-<tr>
-</table>
-
-
-## Require
-
-- iOS 8
-- Swift 4+
-- XCode 10.2+
-
-For Swift 3, See branch [Swift3](https://github.com/LeoMobileDeveloper/PullToRefreshKit/tree/Swift3)
-
-## Support
+## Features
 
 UITableView/UICollectionView/UIScrollView/UIWebView
 
@@ -64,52 +29,56 @@ UITableView/UICollectionView/UIScrollView/UIWebView
 - [x] English and Chinese
 
 
+
 ## Install
 
-CocoaPod
+### CocoaPod
 
-```
-pod "PullToRefreshKit"
+To integrate YLPullToRefreshKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '13.0'
+use_frameworks!
+
+target 'MyApp' do
+  # your other pod
+  # ...
+  pod 'YLPullToRefreshKit'
+end
 ```
 
-Carthage
+Run `pod install` to build your dependencies.
 
-```
-github "LeoMobileDeveloper/PullToRefreshKit"
-```
+### Swift Package Manager
 
-Swift Package Manager
+Select File > Swift Packages > Add Package Dependency. Enter `https://github.com/YuLeiFuYun/PullToRefreshKit.git` in the "Choose Package Repository" dialog.
 
-```swift
-.package(url: "https://github.com/LeoMobileDeveloper/PullToRefreshKit.git",  from: "0.8.9")
-```
+
 
 ## Useage
 
 > What is a container?
 > A container is the object that hold the scrollView reference, most time it is a UIViewController object
 
-### Pull down to refresh
+#### Pull down to refresh
 
 
-```
+```swift i
 self.tableView.configRefreshHeader(container:self) { [weak self] in
-    delay(2, closure: {
-        self?.tableView.switchRefreshHeader(to: .normal(.success, 0.5))
-    })
+    // success
+    self?.tableView.switchRefreshHeader(to: .normal(.success, 0.5))
+    // failure
+    self?.tableView.switchRefreshHeader(to: .normal(.failure, 0.5))
+    
+    // if no more data
+    self?.tableView.switchRefreshFooter(to: .removed)
 }
-```
-
-If you do not want any delay:
-
-```
-self.tableView.switchRefreshHeader(to: .normal(.none, 0.0))
 ```
 
 <img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif1.gif" width="320">
 
-
-### Pull up to load more
+#### Pull up to load more
 
 Support three mode to fire refresh action  
 
@@ -117,41 +86,30 @@ Support three mode to fire refresh action
 - [x] Scroll
 - [x] Scroll and Tap
 
-```
+```swift
 self.tableView.configRefreshFooter(container:self) { [weak self] in
-	delay(1.5, closure: {
-	    self?.tableView.switchRefreshFooter(to: .normal)
-	})
+	// has more data
+    self?.tableView.switchRefreshFooter(to: .normal)
+    // no more data
+    self?.tableView.switchRefreshFooter(to: .removed)
 };
 ```
 
 <img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif2.gif" width="320">
 
-Remove footer:
+#### Pull left to exit
 
-```
-self.tableView.switchRefreshFooter(to: .removed)
-```
-
-No more Data
-
-```
-self.tableView.switchRefreshFooter(to: .noMoreData)
-```
-
-### Pull left to exit
-
-```
+```swift
 scrollView.configSideRefresh(with: DefaultRefreshLeft.left(), container:self, at: .left) {
-   self.navigationController?.popViewController(animated: true)
+    self.navigationController?.popViewController(animated: true)
 };
 ```
 
 <img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif3.gif" width="200">
 
-### Pull right to Pop
+#### Pull right to Pop
 
-```
+```swift
 let right  = DefaultRefreshRight.right()
 right.setText("👈滑动关闭", mode: .scrollToAction)
 right.setText("松开关闭", mode: .releaseToAction)
@@ -163,11 +121,11 @@ scrollView.configSideRefresh(with: right, container:self, at: .right) { [weak se
 
 <img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif4.gif" width="200">
 
-### Config the default refresh text
+#### Config the default refresh text
 
-PullToRefershKit offer `SetUp` operator，for example
+YLRefresh offer `SetUp` operator，for example
 
-```
+```swift
 let header = DefaultRefreshHeader.header()
 header.setText("Pull to refresh", mode: .pullToRefresh)
 header.setText("Release to refresh", mode: .releaseToRefresh)
@@ -186,7 +144,7 @@ self.tableView.configRefreshHeader(with: header,container:self) { [weak self] in
 };
 ```
 
-### Customize
+#### Customize
 
 You just need to write a `UIView` sub class,and make it conforms to these protocols
 
@@ -196,7 +154,7 @@ You just need to write a `UIView` sub class,and make it conforms to these protoc
 
 For exmaple,to create a custom header
 
-``` 
+``` swift
     //Height of the refresh header
     func heightForHeader()->CGFloat
     
@@ -224,10 +182,7 @@ For exmaple,to create a custom header
 ```
 
 
-## Author
-
-Leo, leomobiledeveloper@gmail.com
 
 ## License
 
-PullToRefreshKit is available under the MIT license. See the LICENSE file for more info.
+YLRefresh is available under the MIT license. See the LICENSE file for more info.

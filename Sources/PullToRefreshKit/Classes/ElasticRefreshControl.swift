@@ -69,7 +69,11 @@ open class ElasticRefreshControl: UIView {
         addSubview(spinner)
         sizeToFit()
         spinner.hidesWhenStopped = true
-        spinner.style = .gray
+        if #available(iOS 13.0, *) {
+            spinner.style = UIActivityIndicatorView.Style.medium
+        } else {
+            spinner.style = .gray
+        }
     }
    open override func layoutSubviews() {
         super.layoutSubviews()

@@ -85,6 +85,7 @@ public enum RefreshKitHeaderText{
     case willRefresh = 3
 }
 
+@available(iOS 13.0, *)
 open class DefaultRefreshHeader: UIView, RefreshableHeader {
     
     open class func header()->DefaultRefreshHeader{
@@ -99,7 +100,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
         }
     }
     
-    public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
+    public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     public let textLabel:UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 140,height: 40))
     public let imageView:UIImageView = UIImageView(frame: CGRect.zero)
     open var durationWhenHide = 0.5

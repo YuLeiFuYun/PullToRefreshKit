@@ -76,11 +76,13 @@ public enum RefreshMode{
     case scrollAndTap
 }
 
+@available(iOS 13.0, *)
 open class DefaultRefreshFooter:UIView, RefreshableFooter{
     public static func footer()-> DefaultRefreshFooter{
         return DefaultRefreshFooter()
     }
-    public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
+    public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    
     public  let textLabel:UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 140,height: 40))
     /// 触发刷新的模式
     open var refreshMode = RefreshMode.scrollAndTap{

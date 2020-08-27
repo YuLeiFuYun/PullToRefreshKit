@@ -80,11 +80,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     public static func footer()-> DefaultRefreshFooter{
         return DefaultRefreshFooter()
     }
-    #if swift(>=4.2)
     public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
-    #else
-    public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    #endif
     public  let textLabel:UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 140,height: 40))
     /// 触发刷新的模式
     open var refreshMode = RefreshMode.scrollAndTap{
@@ -375,13 +371,7 @@ class RefreshFooterContainer:UIView{
     }
     // MARK: - API -
     func beginRefreshing(){
-        if self.window != nil {
-            self.state = .refreshing
-        }else{
-            if state != .refreshing{
-                self.state = .willRefresh
-            }
-        }
+        self.state = .refreshing
     }
     func endRefreshing(){
         self.state = .idle

@@ -221,14 +221,7 @@ class RefreshLeftContainer:UIView{
     }
     // MARK: - API -
     func beginRefreshing(){
-        if self.window != nil {
-            self.state = .refreshing
-        }else{
-            if state != .refreshing{
-                self.state = .willRefresh
-                ()
-            }
-        }
+        self.state = .refreshing
     }
     func endRefreshing(){
         self.state = .idle

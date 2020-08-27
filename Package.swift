@@ -12,6 +12,6 @@ let package = Package(
 //        .testTarget(name: "PullToRefreshKitTests", dependencies: ["PullToRefreshKit"])
     ],
     swiftLanguageVersions: [
-        .v4,.v4_2,.v5
+        .v5
     ]
 )

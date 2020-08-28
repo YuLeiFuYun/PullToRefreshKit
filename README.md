@@ -1,6 +1,5 @@
 <p align="center">
-
- [![Version](https://img.shields.io/cocoapods/v/PullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/YLPullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+ [![Version](https://img.shields.io/cocoapods/v/YLPullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/YLPullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
  [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
@@ -76,7 +75,7 @@ self.tableView.configRefreshHeader(container:self) { [weak self] in
 }
 ```
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif1.gif" width="320">
+<img src="Screenshot/gif1.gif" width="320">
 
 #### Pull up to load more
 
@@ -95,7 +94,7 @@ self.tableView.configRefreshFooter(container:self) { [weak self] in
 };
 ```
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif2.gif" width="320">
+<img src="Screenshot/gif2.gif" width="320">
 
 #### Pull left to exit
 
@@ -105,7 +104,7 @@ scrollView.configSideRefresh(with: DefaultRefreshLeft.left(), container:self, at
 };
 ```
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif3.gif" width="200">
+<img src="Screenshot/gif3.gif" width="200">
 
 #### Pull right to Pop
 
@@ -119,11 +118,11 @@ scrollView.configSideRefresh(with: right, container:self, at: .right) { [weak se
 };
 ```
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif4.gif" width="200">
+<img src="Screenshot/gif4.gif" width="200">
 
 #### Config the default refresh text
 
-YLRefresh offer `SetUp` operator，for example
+YLPullToRefreshKit offer `SetUp` operator，for example
 
 ```swift
 let header = DefaultRefreshHeader.header()

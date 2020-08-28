@@ -7,7 +7,7 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: "PullToRefreshKit", targets: ["PullToRefreshKit"]),
+        .library(name: "YLPullToRefreshKit", targets: ["PullToRefreshKit"]),
     ],
     targets: [
         .target(

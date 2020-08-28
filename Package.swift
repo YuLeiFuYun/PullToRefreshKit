@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "PullToRefreshKit",
+    name: "YLPullToRefreshKit",
     defaultLocalization: "en",
     platforms: [.iOS(.v13)],
     products: [

@@ -13,7 +13,7 @@
 ## Requirements
 
 - iOS 13.0+
-- Swift 5.0+
+- Swift 5.1+
 
 
 
@@ -52,7 +52,7 @@ Run `pod install` to build your dependencies.
 
 ### Swift Package Manager
 
-Select File > Swift Packages > Add Package Dependency. Enter `https://github.com/YuLeiFuYun/PullToRefreshKit.git` in the "Choose Package Repository" dialog.
+Select File > Swift Packages > Add Package Dependency. Enter `https://github.com/YuLeiFuYun/YLPullToRefreshKit.git` in the "Choose Package Repository" dialog.
 
 
 
@@ -185,4 +185,4 @@ For exmaple,to create a custom header
 
 ## License
 
-YLRefresh is available under the MIT license. See the LICENSE file for more info.
+YLPullToRefreshKit is available under the MIT license. See the LICENSE file for more info.

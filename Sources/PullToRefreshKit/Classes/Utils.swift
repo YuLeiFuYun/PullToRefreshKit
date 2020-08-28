@@ -28,6 +28,7 @@ struct PullToRefreshKitConst{
     static let rightTag  = 100004
 }
 
+@available(iOS 13.0, *)
 func PTRLocalize(_ string:String)->String{
     return NSLocalizedString(string, tableName: "Localize", bundle: Bundle(for: DefaultRefreshHeader.self), value: "", comment: "")
 }

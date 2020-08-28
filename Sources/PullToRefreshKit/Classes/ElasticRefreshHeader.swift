@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 13.0, *)
 open class ElasticRefreshHeader: UIView,RefreshableHeader {
     let control:ElasticRefreshControl
     public let textLabel:UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 120,height: 40))

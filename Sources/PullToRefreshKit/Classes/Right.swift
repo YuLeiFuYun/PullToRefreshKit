@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-
+@available(iOS 13.0, *)
 open class DefaultRefreshRight:UIView, RefreshableLeftRight {
     public static func right()->DefaultRefreshRight{
         return DefaultRefreshRight(frame: CGRect(x: 0, y: 0, width: PullToRefreshKitConst.defaultRightWidth, height: UIScreen.main.bounds.size.height))

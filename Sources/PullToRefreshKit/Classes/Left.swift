@@ -35,7 +35,9 @@ public enum RefreshKitLeftRightText{
     case scrollToAction
     case releaseToAction
 }
+
 @objcMembers
+@available(iOS 13.0, *)
 open class DefaultRefreshLeft: UIView, RefreshableLeftRight {
     public static func left()->DefaultRefreshLeft{
         return DefaultRefreshLeft(frame: CGRect(x: 0, y: 0, width: PullToRefreshKitConst.defaultLeftWidth, height: UIScreen.main.bounds.size.height))

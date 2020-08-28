@@ -62,8 +62,8 @@ struct AssociatedObject {
     static var footerBottomKey:UInt8 = 0
 }
 
+@available(iOS 13.0, *)
 public extension UIScrollView{
-    
     func configRefreshHeader(with refrehser:UIView & RefreshableHeader = DefaultRefreshHeader.header(),
                                     container object: AnyObject,
                                     action:@escaping ()->()){

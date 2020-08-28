@@ -1,5 +1,5 @@
 <p align="center">
- [![Version](https://img.shields.io/cocoapods/v/YLPullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/YLPullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+ [![Version](https://img.shields.io/cocoapods/v/YLPullToRefreshKit.svg?style=flat )](http://cocoapods.org/pods/YLPullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
  [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
